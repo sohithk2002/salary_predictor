@@ -4,7 +4,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Job Market Insight</title>
+    <title>Executive Summary of Insights</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,63 +27,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'job_market_insight' %}">Job Market Insight</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'skill_gap' %}">Skill Gap</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'job_market_insight' %}">Job Market & Skill Gap Insight</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'skill_gap' %}">Salary Predictor</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Page Content (Fixed Navbar Overlap) -->
-<div class="content mt-5">
-    <div class="container text-center">
-        <h1 class="my-4">Job Market Insight</h1>
-        <p>Analyze the latest trends in the job market and make data-driven decisions about career growth.</p>
-
-        <!-- Tableau Visualization for Job Market Insights -->
-        <div class='tableauPlaceholder' id='viz1741124339394' style='position: relative'>
-            <noscript>
-                <a href='#'>
-                    <img alt=' ' src='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1/1_rss.png' style='border: none' />
-                </a>
-            </noscript>
-            <object class='tableauViz' style='display:none;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                <param name='embed_code_version' value='3' />
-                <param name='site_root' value='' />
-                <param name='name' value='JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1' />
-                <param name='tabs' value='yes' />
-                <param name='toolbar' value='yes' />
-                <param name='static_image' value='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1/1.png' />
-                <param name='animate_transition' value='yes' />
-                <param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' />
-                <param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' />
-                <param name='language' value='en-US' />
-            </object>
-        </div>
-        <script type='text/javascript'>
-            var divElement = document.getElementById('viz1741124339394');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            if ( divElement.offsetWidth > 800 ) {
-                vizElement.style.width='100%';
-                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-            } else if ( divElement.offsetWidth > 500 ) {
-                vizElement.style.width='100%';
-                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-            } else {
-                vizElement.style.width='100%';
-                vizElement.style.minHeight='2650px';
-                vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';
-            }
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        </script>
-    </div>
-</div> <!-- End Content -->
-
+    <div class="content mt-5">
         <!-- Job Market Analysis Section -->
         <div class="container mt-5">
             <h2 class="text-center mb-4">Job Market Analysis</h2>
@@ -225,22 +177,20 @@
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <!-- Insights Section -->
-                                    <h3>Most commonly used job platforms:</h3>
-                                    <ul class="list-unstyled">
-                                        <li>FlexJobs</li>
-                                        <li>Stack Overflow Jobs</li>
-                                        <li>Jobs2Careers</li>
-                                    </ul>
-                                    <h3>Least used job platforms:</h3>
-                                    <ul class="list-unstyled">
-                                        <li>Glassdoor</li>
-                                        <li>LinkedIn</li>
-                                        <li>Monster</li>
-                                    </ul>
-                                    <p>This data helps job seekers optimize their job search strategy.</p>
-                                
-                          
+                            <h3>Most commonly used job platforms:</h3>
+                            <ul class="list-unstyled">
+                                <li>FlexJobs</li>
+                                <li>Stack Overflow Jobs</li>
+                                <li>Jobs2Careers</li>
+                            </ul>
+                            <h3>Least used job platforms:</h3>
+                            <ul class="list-unstyled">
+                                <li>Glassdoor</li>
+                                <li>LinkedIn</li>
+                                <li>Monster</li>
+                            </ul>
+                            <p>This data helps job seekers optimize their job search strategy.</p>
+                            
                             <!-- Tableau Visualization for Job Portal -->
                             <div class='tableauPlaceholder' id='viz1741123361343' style='position: relative'>
                                 <noscript>
@@ -277,59 +227,202 @@
                     </div>
                 </div>
 
-               <!-- Top Jobs -->
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Top Jobs</h5>
-            <ul class="list-unstyled">
-                <li>Data analyst</li>
-                <li>Data Engineer</li>
-                <li>Database adminstrator</li>
-                <li>Data Entry Clerk</li>
-                <li>Data Scientist</li>
-                <li>Database Developer</li>
-            </ul>
-        </div>
+                <!-- Top Jobs -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Jobs</h5>
+                            <ul class="list-unstyled">
+                                <li>Data Analyst</li>
+                                <li>Data Engineer</li>
+                                <li>Database Administrator</li>
+                                <li>Data Entry Clerk</li>
+                                <li>Data Scientist</li>
+                                <li>Database Developer</li>
+                            </ul>
+                        </div>
 
-        <!-- Tableau Visualization for Top Job Titles -->
-        <div class='tableauPlaceholder' id='viz1741123894105' style='position: relative'>
-            <noscript>
-                <a href='#'>
-                    <img alt=' ' src='https://public.tableau.com/static/images/Jo/JobTitles_17411064344980/JobTitles/1_rss.png' style='border: none' />
-                </a>
-            </noscript>
-            <object class='tableauViz' style='display:none;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                <param name='embed_code_version' value='3' />
-                <param name='site_root' value='' />
-                <param name='name' value='JobTitles_17411064344980/JobTitles' />
-                <param name='tabs' value='yes' />
-                <param name='toolbar' value='yes' />
-                <param name='static_image' value='https://public.tableau.com/static/images/Jo/JobTitles_17411064344980/JobTitles/1.png' />
-                <param name='animate_transition' value='yes' />
-                <param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' />
-                <param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' />
-                <param name='language' value='en-US' />
-            </object>
-        </div>
-        <script type='text/javascript'>
-            var divElement = document.getElementById('viz1741123894105');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            vizElement.style.width='100%';
-            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        </script>
-    </div>
-</div>
+                        <!-- Tableau Visualization for Top Job Titles -->
+                        <div class='tableauPlaceholder' id='viz1741123894105' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt=' ' src='https://public.tableau.com/static/images/Jo/JobTitles_17411064344980/JobTitles/1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz' style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='JobTitles_17411064344980/JobTitles' />
+                                <param name='tabs' value='yes' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https://public.tableau.com/static/images/Jo/JobTitles_17411064344980/JobTitles/1.png' />
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                            </object>
+                        </div>
+                        <script type='text/javascript'>
+                            var divElement = document.getElementById('viz1741123894105');
+                            var vizElement = divElement.getElementsByTagName('object')[0];
+                            vizElement.style.width='100%';
+                            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                        </script>
+                    </div>
+                </div>
             </div>
-            
-            
-        </div>
+
+            <!-- Skill Gap Insights Section -->
+            <h2 class="text-center mb-4">Skill Gap Insights</h2>
+
+            <!-- Experience Levels Insight Section -->
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h3>Experience Levels Insight</h3>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Experience Insights</h5>
+                            <p>Skills in demand vary depending on experience. The most experienced professionals (5-8 years) require advanced skills, while those with only 2-5 years of experience often focus on foundational skills.</p>
+                        </div>
+                    </div>
+                    <!-- Tableau Visualization Embed for Experience Insights -->
+                    <div class='tableauPlaceholder' id='viz1741125507679' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt=' ' src='https://public.tableau.com/static/images/Ex/Experience_17411245589340/Experience/1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Experience_17411245589340/Experience' />
+                            <param name='tabs' value='yes' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https://public.tableau.com/static/images/Ex/Experience_17411245589340/Experience/1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1741125507679');
+                        var vizElement = divElement.getElementsByTagName('object')[0];
+                        vizElement.style.width='100%';
+                        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                        var scriptElement = document.createElement('script');
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script>
+                </div>
+            </div> <!-- End of Experience Levels Insight Section -->
+
+            <!-- Top Skills and Top Qualifications Section -->
+            <div class="row g-4">
+                <!-- Top Skills Section -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Skills</h5>
+                            <ul class="list-unstyled">
+                                <li>Machine learning algorithms and libraries</li>
+                                <li>Data analysis and visualization tools</li>
+                                <li>Data quality assessment and improvements, data profiling, and validation knowledge of data quality tools.</li>
+                            </ul>
+                        </div>
+                        <!-- Tableau Visualization Embed for Top Skills -->
+                        <div class='tableauPlaceholder' id='viz1741124834405' style='position: relative'>
+                            <noscript>
+                                <a href='#'>
+                                    <img alt=' ' src='https://public.tableau.com/static/images/To/TopSkills_17411245230120/Skills/1_rss.png' style='border: none' />
+                                </a>
+                            </noscript>
+                            <object class='tableauViz' style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='TopSkills_17411245230120/Skills' />
+                                <param name='tabs' value='yes' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https://public.tableau.com/static/images/To/TopSkills_17411245230120/Skills/1.png' />
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                            </object>
+                        </div>
+                        <script type='text/javascript'>
+                            var divElement = document.getElementById('viz1741124834405');
+                            var vizElement = divElement.getElementsByTagName('object')[0];
+                            vizElement.style.width='100%';
+                            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                        </script>
+                    </div>
+                </div>
+
+                <!-- Top Qualifications Section -->
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Qualifications</h5>
+                            <ul class="list-unstyled">
+                                <li>BBA - 33.36%</li>
+                                <li>BA - 33.36%</li>
+                                <li>BCA - 33.28%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tableau Visualization Embed for Qualifications -->
+                    <div class='tableauPlaceholder' id='viz1741124629135' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt=' ' src='https://public.tableau.com/static/images/Qu/Qualifications_17411245963520/Qualifications/1_rss.png' style='border: none'/>
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+                            <param name='embed_code_version' value='3'/>
+                            <param name='site_root' value=''/>
+                            <param name='name' value='Qualifications_17411245963520/Qualifications'/>
+                            <param name='tabs' value='yes'/>
+                            <param name='toolbar' value='yes'/>
+                            <param name='static_image' value='https://public.tableau.com/static/images/Qu/Qualifications_17411245963520/Qualifications/1.png'/>
+                            <param name='animate_transition' value='yes'/>
+                            <param name='display_static_image' value='yes'/>
+                            <param name='display_spinner' value='yes'/>
+                            <param name='display_overlay' value='yes'/>
+                            <param name='display_count' value='yes'/>
+                            <param name='language' value='en-US'/>
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1741124629135');
+                        var vizElement = divElement.getElementsByTagName('object')[0];
+                        vizElement.style.width='100%';
+                        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                        var scriptElement = document.createElement('script');
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script>
+                </div>
+            </div> <!-- End of Top Skills and Top Qualifications -->
+
+        </div> <!-- End of Skill Gap Insights Section -->
     </div> <!-- End Content -->
 
     <!-- Scroll to Top Button -->
@@ -339,7 +432,7 @@
 
     <!-- Footer (Fixed at Bottom) -->
     <footer class="footer bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Salary Predictor | All Rights Reserved</p>
+        <p>© 2025 Salary Predictor | All Rights Reserved</p>
     </footer>
 
     <!-- Bootstrap 5 JS Bundle -->
