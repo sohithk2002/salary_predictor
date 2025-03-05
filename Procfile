@@ -1,1 +1,1 @@
-web: waitress-serve --port=21029 salary_predictor.wsgi:application
+web: waitress-serve --port=$PORT salary_predictor.wsgi:application
