@@ -27,7 +27,14 @@ SECRET_KEY = 'django-insecure-_s94z*le0sg6ag_nmtvx9-9aa0t*a!rr!xb8*v*#2d2pb*5)mk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["prediction.onrender.com"]
+ALLOWED_HOSTS = [
+    "salary-predictor-mqio.onrender.com",
+    "127.0.0.1",  # Allow local testing
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://salary-predictor-mqio.onrender.com"
+]
 
 
 # Application definition
