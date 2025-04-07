@@ -14,6 +14,49 @@
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* Custom Tooltip Styles */
+        #custom-tooltip {
+            display: none;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+            pointer-events: none;
+            max-width: 300px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        #custom-tooltip h4 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+        }
+        
+        #custom-tooltip .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        #custom-tooltip .tooltip-label {
+            font-weight: 600;
+            color: #3498db;
+        }
+        
+        #custom-tooltip .tooltip-value {
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
 
@@ -242,7 +285,7 @@
                             </ul>
                         </div>
 
-                        <!-- Tableau Visualization for Top Job Titles -->
+                        <!-- Tableau Visualization for Top Job Titles with Custom Tooltip -->
                         <div class='tableauPlaceholder' id='viz1741123894105' style='position: relative'>
                             <noscript>
                                 <a href='#'>
@@ -272,6 +315,12 @@
                             vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
                             var scriptElement = document.createElement('script');
                             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            
+                            scriptElement.onload = function() {
+                                // Initialize custom tooltip for this visualization
+                                initCustomTooltip('viz1741123894105', 'Job Titles Analysis');
+                            };
+                            
                             vizElement.parentNode.insertBefore(scriptElement, vizElement);
                         </script>
                     </div>
@@ -339,7 +388,7 @@
                                 <li>Data quality assessment and improvements, data profiling, and validation knowledge of data quality tools.</li>
                             </ul>
                         </div>
-                        <!-- Tableau Visualization Embed for Top Skills -->
+                        <!-- Tableau Visualization Embed for Top Skills with Custom Tooltip -->
                         <div class='tableauPlaceholder' id='viz1741124834405' style='position: relative'>
                             <noscript>
                                 <a href='#'>
@@ -369,6 +418,12 @@
                             vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
                             var scriptElement = document.createElement('script');
                             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            
+                            scriptElement.onload = function() {
+                                // Initialize custom tooltip for this visualization
+                                initCustomTooltip('viz1741124834405', 'Top Skills Analysis');
+                            };
+                            
                             vizElement.parentNode.insertBefore(scriptElement, vizElement);
                         </script>
                     </div>
@@ -425,6 +480,9 @@
         </div> <!-- End of Skill Gap Insights Section -->
     </div> <!-- End Content -->
 
+    <!-- Custom Tooltip Container (Added once for all visualizations) -->
+    <div id="custom-tooltip"></div>
+
     <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="btn btn-primary">
         <i class="fas fa-arrow-up"></i>
@@ -440,6 +498,98 @@
     
     <!-- Custom JavaScript -->
     <script src="{% static 'js/script.js' %}"></script>
+
+    <!-- Tooltip Customization Script -->
+    <script>
+        // Global tooltip element
+        const customTooltip = document.getElementById('custom-tooltip');
+        
+        // Initialize custom tooltip for a specific visualization
+        function initCustomTooltip(vizContainerId, vizTitle) {
+            const container = document.getElementById(vizContainerId);
+            const vizElement = container.getElementsByTagName('object')[0];
+            
+            // Get the Viz object
+            const viz = new tableau.Viz(vizElement);
+            
+            // When the viz becomes interactive
+            viz.addEventListener(tableau.TableauEventName.FIRST_INTERACTIVE, function() {
+                const workbook = viz.getWorkbook();
+                const activeSheet = workbook.getActiveSheet();
+                
+                if (activeSheet.getSheetType() === tableau.SheetType.WORKSHEET) {
+                    // Listen for mark selection events (tooltip hover)
+                    activeSheet.addEventListener(tableau.TableauEventName.MARK_SELECTION, function(marksEvent) {
+                        handleMarkSelection(marksEvent, vizTitle);
+                    });
+                }
+            });
+            
+            // Track mouse movement for tooltip positioning
+            container.addEventListener('mousemove', function(e) {
+                if (customTooltip.style.display === 'block') {
+                    positionTooltip(e);
+                }
+            });
+            
+            // Hide tooltip when mouse leaves the visualization
+            container.addEventListener('mouseleave', function() {
+                customTooltip.style.display = 'none';
+            });
+        }
+        
+        // Handle mark selection (tooltip content)
+        function handleMarkSelection(marksEvent, vizTitle) {
+            marksEvent.getMarksAsync().then(function(marks) {
+                if (marks.length > 0) {
+                    const mark = marks[0];
+                    const pairs = mark.getPairs();
+                    
+                    // Build tooltip content
+                    let tooltipContent = `<h4>${vizTitle}</h4>`;
+                    
+                    pairs.forEach(function(pair) {
+                        tooltipContent += `
+                            <div class="tooltip-row">
+                                <span class="tooltip-label">${pair.fieldName}:</span>
+                                <span class="tooltip-value">${pair.formattedValue}</span>
+                            </div>
+                        `;
+                    });
+                    
+                    // Update tooltip
+                    customTooltip.innerHTML = tooltipContent;
+                    customTooltip.style.display = 'block';
+                } else {
+                    customTooltip.style.display = 'none';
+                }
+            });
+        }
+        
+        // Position the tooltip near the cursor
+        function positionTooltip(e) {
+            const offsetX = 15;
+            const offsetY = 15;
+            const tooltipWidth = customTooltip.offsetWidth;
+            const tooltipHeight = customTooltip.offsetHeight;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            
+            // Adjust position if tooltip would go off screen
+            let left = e.clientX + offsetX;
+            if (left + tooltipWidth > windowWidth) {
+                left = e.clientX - tooltipWidth - offsetX;
+            }
+            
+            let top = e.clientY + offsetY;
+            if (top + tooltipHeight > windowHeight) {
+                top = e.clientY - tooltipHeight - offsetY;
+            }
+            
+            customTooltip.style.left = left + 'px';
+            customTooltip.style.top = top + 'px';
+        }
+    </script>
 
 </body>
 </html>
