@@ -14,47 +14,40 @@
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+    
     <style>
-        /* Custom Tooltip Styles */
+        /* Custom styles for visualizations and tooltips */
+        .tableauPlaceholder {
+            min-height: 500px;
+            margin-bottom: 20px;
+        }
+        
         #custom-tooltip {
-            display: none;
             position: absolute;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid #ddd;
+            display: none;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
             border-radius: 5px;
-            padding: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            z-index: 1000;
             pointer-events: none;
+            z-index: 1000;
             max-width: 300px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 14px;
-            color: #333;
         }
         
-        #custom-tooltip h4 {
-            margin-top: 0;
-            color: #2c3e50;
-            font-size: 16px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 8px;
-        }
-        
-        #custom-tooltip .tooltip-row {
+        .card {
+            height: 100%;
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+            flex-direction: column;
         }
         
-        #custom-tooltip .tooltip-label {
-            font-weight: 600;
-            color: #3498db;
+        .card-body {
+            flex-grow: 1;
         }
         
-        #custom-tooltip .tooltip-value {
-            text-align: right;
+        .viz-container {
+            height: 600px;
+            width: 100%;
         }
     </style>
 </head>
@@ -77,6 +70,9 @@
         </div>
     </nav>
 
+    <!-- Custom Tooltip -->
+    <div id="custom-tooltip"></div>
+
     <!-- Page Content (Fixed Navbar Overlap) -->
     <div class="content mt-5">
         <!-- Job Market Analysis Section -->
@@ -84,404 +80,161 @@
             <h2 class="text-center mb-4">Job Market Analysis</h2>
 
             <!-- Grid Layout -->
-            <div class="row text-center">
+            <div class="row text-center g-4">
                 <!-- Total Job Listings -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Total Job Listings</h5>
-                            <p class="card-text">17,336</p>
-                            
-                            <!-- Tableau Visualization -->
-                            <div class='tableauPlaceholder' id='viz1741123013996' style='position: relative'>
-                                <noscript>
-                                    <a href='#'>
-                                        <img alt=' ' src='https://public.tableau.com/static/images/li/listings_17411225751410/Listings/1_rss.png' style='border: none' />
-                                    </a>
-                                </noscript>
-                                <object class='tableauViz' style='display:none;'>
-                                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                    <param name='embed_code_version' value='3' />
-                                    <param name='site_root' value='' />
-                                    <param name='name' value='listings_17411225751410/Listings' />
-                                    <param name='tabs' value='yes' />
-                                    <param name='toolbar' value='yes' />
-                                    <param name='static_image' value='https://public.tableau.com/static/images/li/listings_17411225751410/Listings/1.png' />
-                                    <param name='animate_transition' value='yes' />
-                                    <param name='display_static_image' value='yes' />
-                                    <param name='display_spinner' value='yes' />
-                                    <param name='display_overlay' value='yes' />
-                                    <param name='display_count' value='yes' />
-                                    <param name='language' value='en-US' />
-                                </object>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizTotalListings'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Job Listings Dashboard' src='https://public.tableau.com/static/images/li/listings_17411225751410/Listings/1_rss.png' style='border: none' />
+                                        </a>
+                                    </noscript>
+                                </div>
                             </div>
-                            <script type='text/javascript'>
-                                var divElement = document.getElementById('viz1741123013996');
-                                var vizElement = divElement.getElementsByTagName('object')[0];
-                                vizElement.style.width='100%';
-                                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                                var scriptElement = document.createElement('script');
-                                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                            </script>
                         </div>
                     </div>
                 </div>
 
                 <!-- Median Salary -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Median Salary</h5>
-                            <p class="card-text">$82.53K</p>
-                            
-                            <!-- Additional Tableau Visualization -->
-                            <div class='tableauPlaceholder' id='viz1741123109956' style='position: relative'>
-                                <noscript>
-                                    <a href='#'>
-                                        <img alt=' ' src='https://public.tableau.com/static/images/Sa/Salary_17411224408560/Salary/1_rss.png' style='border: none' />
-                                    </a>
-                                </noscript>
-                                <object class='tableauViz' style='display:none;'>
-                                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                    <param name='embed_code_version' value='3' />
-                                    <param name='site_root' value='' />
-                                    <param name='name' value='Salary_17411224408560/Salary' />
-                                    <param name='tabs' value='yes' />
-                                    <param name='toolbar' value='yes' />
-                                    <param name='static_image' value='https://public.tableau.com/static/images/Sa/Salary_17411224408560/Salary/1.png' />
-                                    <param name='animate_transition' value='yes' />
-                                    <param name='display_static_image' value='yes' />
-                                    <param name='display_spinner' value='yes' />
-                                    <param name='display_overlay' value='yes' />
-                                    <param name='display_count' value='yes' />
-                                    <param name='language' value='en-US' />
-                                </object>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizMedianSalary'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Salary Dashboard' src='https://public.tableau.com/static/images/Sa/Salary_17411224408560/Salary/1_rss.png' style='border: none' />
+                                        </a>
+                                    </noscript>
+                                </div>
                             </div>
-                            <script type='text/javascript'>
-                                var divElement = document.getElementById('viz1741123109956');
-                                var vizElement = divElement.getElementsByTagName('object')[0];
-                                vizElement.style.width='100%';
-                                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                                var scriptElement = document.createElement('script');
-                                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                            </script>
                         </div>
                     </div>
                 </div>
 
                 <!-- Top Companies -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Top Companies</h5>
-                            
-                            <!-- Tableau Visualization for Top Companies -->
-                            <div class='tableauPlaceholder' id='viz1741123221845' style='position: relative'>
-                                <noscript>
-                                    <a href='#'>
-                                        <img alt=' ' src='https://public.tableau.com/static/images/Co/Company_17411227037460/Company/1_rss.png' style='border: none' />
-                                    </a>
-                                </noscript>
-                                <object class='tableauViz' style='display:none;'>
-                                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                    <param name='embed_code_version' value='3' />
-                                    <param name='site_root' value='' />
-                                    <param name='name' value='Company_17411227037460/Company' />
-                                    <param name='tabs' value='yes' />
-                                    <param name='toolbar' value='yes' />
-                                    <param name='static_image' value='https://public.tableau.com/static/images/Co/Company_17411227037460/Company/1.png' />
-                                    <param name='animate_transition' value='yes' />
-                                    <param name='display_static_image' value='yes' />
-                                    <param name='display_spinner' value='yes' />
-                                    <param name='display_overlay' value='yes' />
-                                    <param name='display_count' value='yes' />
-                                    <param name='language' value='en-US' />
-                                </object>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizTopCompanies'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Top Companies Dashboard' src='https://public.tableau.com/static/images/Co/Company_17411227037460/Company/1_rss.png' style='border: none' />
+                                        </a>
+                                    </noscript>
+                                </div>
                             </div>
-                            <script type='text/javascript'>
-                                var divElement = document.getElementById('viz1741123221845');
-                                var vizElement = divElement.getElementsByTagName('object')[0];
-                                vizElement.style.width='100%';
-                                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                                var scriptElement = document.createElement('script');
-                                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Insights Section -->
-            <div class="row text-center mt-4">
-                <!-- Top Job Portal -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Most commonly used job platforms:</h3>
-                            <ul class="list-unstyled">
-                                <li>FlexJobs</li>
-                                <li>Stack Overflow Jobs</li>
-                                <li>Jobs2Careers</li>
-                            </ul>
-                            <h3>Least used job platforms:</h3>
-                            <ul class="list-unstyled">
-                                <li>Glassdoor</li>
-                                <li>LinkedIn</li>
-                                <li>Monster</li>
-                            </ul>
-                            <p>This data helps job seekers optimize their job search strategy.</p>
-                            
-                            <!-- Tableau Visualization for Job Portal -->
-                            <div class='tableauPlaceholder' id='viz1741123361343' style='position: relative'>
-                                <noscript>
-                                    <a href='#'>
-                                        <img alt=' ' src='https://public.tableau.com/static/images/jo/jobportals/JobPortals/1_rss.png' style='border: none' />
-                                    </a>
-                                </noscript>
-                                <object class='tableauViz' style='display:none;'>
-                                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                    <param name='embed_code_version' value='3' />
-                                    <param name='site_root' value='' />
-                                    <param name='name' value='jobportals/JobPortals' />
-                                    <param name='tabs' value='yes' />
-                                    <param name='toolbar' value='yes' />
-                                    <param name='static_image' value='https://public.tableau.com/static/images/jo/jobportals/JobPortals/1.png' />
-                                    <param name='animate_transition' value='yes' />
-                                    <param name='display_static_image' value='yes' />
-                                    <param name='display_spinner' value='yes' />
-                                    <param name='display_overlay' value='yes' />
-                                    <param name='display_count' value='yes' />
-                                    <param name='language' value='en-US' />
-                                </object>
-                            </div>
-                            <script type='text/javascript'>
-                                var divElement = document.getElementById('viz1741123361343');
-                                var vizElement = divElement.getElementsByTagName('object')[0];
-                                vizElement.style.width='100%';
-                                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                                var scriptElement = document.createElement('script');
-                                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                            </script>
                         </div>
                     </div>
                 </div>
 
-                <!-- Top Jobs -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
+                <!-- Job Portals -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Top Jobs</h5>
-                            <ul class="list-unstyled">
-                                <li>Data Analyst</li>
-                                <li>Data Engineer</li>
-                                <li>Database Administrator</li>
-                                <li>Data Entry Clerk</li>
-                                <li>Data Scientist</li>
-                                <li>Database Developer</li>
-                            </ul>
+                            <h5 class="card-title">Job Platforms Distribution</h5>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizJobPortals'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Job Portals Dashboard' src='https://public.tableau.com/static/images/jo/jobportals/JobPortals/1_rss.png' style='border: none' />
+                                        </a>
+                                    </noscript>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- Tableau Visualization for Top Job Titles with Custom Tooltip -->
-                        <div class='tableauPlaceholder' id='viz1741123894105' style='position: relative'>
-                            <noscript>
-                                <a href='#'>
-                                    <img alt=' ' src='https://public.tableau.com/static/images/Jo/JobTitles_17411064344980/JobTitles/1_rss.png' style='border: none' />
-                                </a>
-                            </noscript>
-                            <object class='tableauViz' style='display:none;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='site_root' value='' />
-                                <param name='name' value='JobTitles_17411064344980/JobTitles' />
-                                <param name='tabs' value='yes' />
-                                <param name='toolbar' value='yes' />
-                                <param name='static_image' value='https://public.tableau.com/static/images/Jo/JobTitles_17411064344980/JobTitles/1.png' />
-                                <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                                <param name='language' value='en-US' />
-                            </object>
+                <!-- Top Job Titles -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Job Titles</h5>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizJobTitles'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Job Titles Dashboard' src='https://public.tableau.com/static/images/Jo/JobTitles_17411064344980/JobTitles/1_rss.png' style='border: none' />
+                                        </a>
+                                    </noscript>
+                                </div>
+                            </div>
                         </div>
-                        <script type='text/javascript'>
-                            var divElement = document.getElementById('viz1741123894105');
-                            var vizElement = divElement.getElementsByTagName('object')[0];
-                            vizElement.style.width='100%';
-                            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                            var scriptElement = document.createElement('script');
-                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                            
-                            scriptElement.onload = function() {
-                                // Initialize custom tooltip for this visualization
-                                initCustomTooltip('viz1741123894105', 'Job Titles Analysis');
-                            };
-                            
-                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                        </script>
                     </div>
                 </div>
             </div>
 
             <!-- Skill Gap Insights Section -->
-            <h2 class="text-center mb-4">Skill Gap Insights</h2>
+            <h2 class="text-center my-4">Skill Gap Insights</h2>
 
             <!-- Experience Levels Insight Section -->
             <div class="row mb-4">
-                <div class="col-12 text-center">
-                    <h3>Experience Levels Insight</h3>
-                    <div class="card mb-4">
+                <div class="col-12">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Experience Insights</h5>
-                            <p>Skills in demand vary depending on experience. The most experienced professionals (5-8 years) require advanced skills, while those with only 2-5 years of experience often focus on foundational skills.</p>
+                            <h5 class="card-title text-center">Experience Levels Insight</h5>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizExperience'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Experience Dashboard' src='https://public.tableau.com/static/images/Ex/Experience_17411245589340/Experience/1_rss.png' style='border: none' />
+                                        </a>
+                                    </noscript>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Tableau Visualization Embed for Experience Insights -->
-                    <div class='tableauPlaceholder' id='viz1741125507679' style='position: relative'>
-                        <noscript>
-                            <a href='#'>
-                                <img alt=' ' src='https://public.tableau.com/static/images/Ex/Experience_17411245589340/Experience/1_rss.png' style='border: none' />
-                            </a>
-                        </noscript>
-                        <object class='tableauViz' style='display:none;'>
-                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                            <param name='embed_code_version' value='3' />
-                            <param name='site_root' value='' />
-                            <param name='name' value='Experience_17411245589340/Experience' />
-                            <param name='tabs' value='yes' />
-                            <param name='toolbar' value='yes' />
-                            <param name='static_image' value='https://public.tableau.com/static/images/Ex/Experience_17411245589340/Experience/1.png' />
-                            <param name='animate_transition' value='yes' />
-                            <param name='display_static_image' value='yes' />
-                            <param name='display_spinner' value='yes' />
-                            <param name='display_overlay' value='yes' />
-                            <param name='display_count' value='yes' />
-                            <param name='language' value='en-US' />
-                        </object>
-                    </div>
-                    <script type='text/javascript'>
-                        var divElement = document.getElementById('viz1741125507679');
-                        var vizElement = divElement.getElementsByTagName('object')[0];
-                        vizElement.style.width='100%';
-                        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                        var scriptElement = document.createElement('script');
-                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                    </script>
                 </div>
-            </div> <!-- End of Experience Levels Insight Section -->
+            </div>
 
             <!-- Top Skills and Top Qualifications Section -->
             <div class="row g-4">
                 <!-- Top Skills Section -->
-                <div class="col-md-6">
-                    <div class="card">
+                <div class="col-lg-6 col-md-6">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Top Skills</h5>
-                            <ul class="list-unstyled">
-                                <li>Machine learning algorithms and libraries</li>
-                                <li>Data analysis and visualization tools</li>
-                                <li>Data quality assessment and improvements, data profiling, and validation knowledge of data quality tools.</li>
-                            </ul>
+                            <h5 class="card-title text-center">Top Skills in Demand</h5>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizTopSkills'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Skills Dashboard' src='https://public.tableau.com/static/images/To/TopSkills_17411245230120/Skills/1_rss.png' style='border: none' />
+                                        </a>
+                                    </noscript>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Tableau Visualization Embed for Top Skills with Custom Tooltip -->
-                        <div class='tableauPlaceholder' id='viz1741124834405' style='position: relative'>
-                            <noscript>
-                                <a href='#'>
-                                    <img alt=' ' src='https://public.tableau.com/static/images/To/TopSkills_17411245230120/Skills/1_rss.png' style='border: none' />
-                                </a>
-                            </noscript>
-                            <object class='tableauViz' style='display:none;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='site_root' value='' />
-                                <param name='name' value='TopSkills_17411245230120/Skills' />
-                                <param name='tabs' value='yes' />
-                                <param name='toolbar' value='yes' />
-                                <param name='static_image' value='https://public.tableau.com/static/images/To/TopSkills_17411245230120/Skills/1.png' />
-                                <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                                <param name='language' value='en-US' />
-                            </object>
-                        </div>
-                        <script type='text/javascript'>
-                            var divElement = document.getElementById('viz1741124834405');
-                            var vizElement = divElement.getElementsByTagName('object')[0];
-                            vizElement.style.width='100%';
-                            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                            var scriptElement = document.createElement('script');
-                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                            
-                            scriptElement.onload = function() {
-                                // Initialize custom tooltip for this visualization
-                                initCustomTooltip('viz1741124834405', 'Top Skills Analysis');
-                            };
-                            
-                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                        </script>
                     </div>
                 </div>
 
                 <!-- Top Qualifications Section -->
-                <div class="col-md-6">
-                    <div class="card mb-4">
+                <div class="col-lg-6 col-md-6">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Top Qualifications</h5>
-                            <ul class="list-unstyled">
-                                <li>BBA - 33.36%</li>
-                                <li>BA - 33.36%</li>
-                                <li>BCA - 33.28%</li>
-                            </ul>
+                            <h5 class="card-title text-center">Qualifications Distribution</h5>
+                            <div class="viz-container">
+                                <div class='tableauPlaceholder' id='vizQualifications'>
+                                    <noscript>
+                                        <a href='#'>
+                                            <img alt='Qualifications Dashboard' src='https://public.tableau.com/static/images/Qu/Qualifications_17411245963520/Qualifications/1_rss.png' style='border: none'/>
+                                        </a>
+                                    </noscript>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Tableau Visualization Embed for Qualifications -->
-                    <div class='tableauPlaceholder' id='viz1741124629135' style='position: relative'>
-                        <noscript>
-                            <a href='#'>
-                                <img alt=' ' src='https://public.tableau.com/static/images/Qu/Qualifications_17411245963520/Qualifications/1_rss.png' style='border: none'/>
-                            </a>
-                        </noscript>
-                        <object class='tableauViz' style='display:none;'>
-                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
-                            <param name='embed_code_version' value='3'/>
-                            <param name='site_root' value=''/>
-                            <param name='name' value='Qualifications_17411245963520/Qualifications'/>
-                            <param name='tabs' value='yes'/>
-                            <param name='toolbar' value='yes'/>
-                            <param name='static_image' value='https://public.tableau.com/static/images/Qu/Qualifications_17411245963520/Qualifications/1.png'/>
-                            <param name='animate_transition' value='yes'/>
-                            <param name='display_static_image' value='yes'/>
-                            <param name='display_spinner' value='yes'/>
-                            <param name='display_overlay' value='yes'/>
-                            <param name='display_count' value='yes'/>
-                            <param name='language' value='en-US'/>
-                        </object>
-                    </div>
-                    <script type='text/javascript'>
-                        var divElement = document.getElementById('viz1741124629135');
-                        var vizElement = divElement.getElementsByTagName('object')[0];
-                        vizElement.style.width='100%';
-                        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                        var scriptElement = document.createElement('script');
-                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                    </script>
                 </div>
-            </div> <!-- End of Top Skills and Top Qualifications -->
-
-        </div> <!-- End of Skill Gap Insights Section -->
-    </div> <!-- End Content -->
-
-    <!-- Custom Tooltip Container (Added once for all visualizations) -->
-    <div id="custom-tooltip"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="btn btn-primary">
@@ -496,100 +249,54 @@
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Tableau JavaScript API -->
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    
     <!-- Custom JavaScript -->
     <script src="{% static 'js/script.js' %}"></script>
 
-    <!-- Tooltip Customization Script -->
     <script>
-        // Global tooltip element
-        const customTooltip = document.getElementById('custom-tooltip');
-        
-        // Initialize custom tooltip for a specific visualization
-        function initCustomTooltip(vizContainerId, vizTitle) {
-            const container = document.getElementById(vizContainerId);
-            const vizElement = container.getElementsByTagName('object')[0];
-            
-            // Get the Viz object
-            const viz = new tableau.Viz(vizElement);
-            
-            // When the viz becomes interactive
-            viz.addEventListener(tableau.TableauEventName.FIRST_INTERACTIVE, function() {
-                const workbook = viz.getWorkbook();
-                const activeSheet = workbook.getActiveSheet();
-                
-                if (activeSheet.getSheetType() === tableau.SheetType.WORKSHEET) {
-                    // Listen for mark selection events (tooltip hover)
-                    activeSheet.addEventListener(tableau.TableauEventName.MARK_SELECTION, function(marksEvent) {
-                        handleMarkSelection(marksEvent, vizTitle);
-                    });
-                }
-            });
-            
-            // Track mouse movement for tooltip positioning
-            container.addEventListener('mousemove', function(e) {
-                if (customTooltip.style.display === 'block') {
-                    positionTooltip(e);
-                }
-            });
-            
-            // Hide tooltip when mouse leaves the visualization
-            container.addEventListener('mouseleave', function() {
-                customTooltip.style.display = 'none';
-            });
-        }
-        
-        // Handle mark selection (tooltip content)
-        function handleMarkSelection(marksEvent, vizTitle) {
-            marksEvent.getMarksAsync().then(function(marks) {
-                if (marks.length > 0) {
-                    const mark = marks[0];
-                    const pairs = mark.getPairs();
-                    
-                    // Build tooltip content
-                    let tooltipContent = `<h4>${vizTitle}</h4>`;
-                    
-                    pairs.forEach(function(pair) {
-                        tooltipContent += `
-                            <div class="tooltip-row">
-                                <span class="tooltip-label">${pair.fieldName}:</span>
-                                <span class="tooltip-value">${pair.formattedValue}</span>
-                            </div>
-                        `;
-                    });
-                    
-                    // Update tooltip
-                    customTooltip.innerHTML = tooltipContent;
-                    customTooltip.style.display = 'block';
-                } else {
-                    customTooltip.style.display = 'none';
-                }
-            });
-        }
-        
-        // Position the tooltip near the cursor
-        function positionTooltip(e) {
-            const offsetX = 15;
-            const offsetY = 15;
-            const tooltipWidth = customTooltip.offsetWidth;
-            const tooltipHeight = customTooltip.offsetHeight;
-            const windowWidth = window.innerWidth;
-            const windowHeight = window.innerHeight;
-            
-            // Adjust position if tooltip would go off screen
-            let left = e.clientX + offsetX;
-            if (left + tooltipWidth > windowWidth) {
-                left = e.clientX - tooltipWidth - offsetX;
-            }
-            
-            let top = e.clientY + offsetY;
-            if (top + tooltipHeight > windowHeight) {
-                top = e.clientY - tooltipHeight - offsetY;
-            }
-            
-            customTooltip.style.left = left + 'px';
-            customTooltip.style.top = top + 'px';
-        }
-    </script>
+        // Initialize all Tableau visualizations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuration for all visualizations
+            const vizConfigurations = [
+                { id: 'vizTotalListings', url: 'https://public.tableau.com/views/listings_17411225751410/Listings' },
+                { id: 'vizMedianSalary', url: 'https://public.tableau.com/views/Salary_17411224408560/Salary' },
+                { id: 'vizTopCompanies', url: 'https://public.tableau.com/views/Company_17411227037460/Company' },
+                { id: 'vizJobPortals', url: 'https://public.tableau.com/views/jobportals/JobPortals' },
+                { id: 'vizJobTitles', url: 'https://public.tableau.com/views/JobTitles_17411064344980/JobTitles' },
+                { id: 'vizExperience', url: 'https://public.tableau.com/views/Experience_17411245589340/Experience' },
+                { id: 'vizTopSkills', url: 'https://public.tableau.com/views/TopSkills_17411245230120/Skills' },
+                { id: 'vizQualifications', url: 'https://public.tableau.com/views/Qualifications_17411245963520/Qualifications' }
+            ];
 
+            // Initialize each visualization
+            vizConfigurations.forEach(config => {
+                initViz(config.id, config.url);
+            });
+
+            // Custom tooltip handling
+            setupCustomTooltips();
+        });
+
+        function initViz(containerId, vizUrl) {
+            const containerDiv = document.getElementById(containerId);
+            const options = {
+                hideTabs: true,
+                hideToolbar: true,
+                width: '100%',
+                height: '500px',
+                onFirstInteractive: function() {
+                    console.log(`${containerId} has loaded`);
+                }
+            };
+            
+            const viz = new tableau.Viz(containerDiv, vizUrl, options);
+            
+            // Store reference to viz for later use
+            containerDiv.viz = viz;
+        }
+
+    </script>
 </body>
 </html>

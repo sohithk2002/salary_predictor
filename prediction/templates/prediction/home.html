@@ -14,6 +14,28 @@
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* Custom tooltip styling */
+        #custom-tooltip {
+            position: absolute;
+            display: none;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 5px;
+            pointer-events: none;
+            z-index: 1000;
+            max-width: 300px;
+            font-size: 14px;
+        }
+        
+        .tableauPlaceholder {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,140 +56,69 @@
         </div>
     </nav>
 
+    <!-- Custom Tooltip Div -->
+    <div id="custom-tooltip"></div>
+
     <!-- Page Content -->
     <div class="content mt-5">
         <div class="container">
             <h1 class="text-center my-4">Job Market Insights & Skill Gap Analysis</h1>
-            <p class="text-center">Analyze job market trends and skill gaps to make informed career decisions.</p>
+            <p class="text-center">Interactive visualizations of job market trends and skill gaps</p>
 
             <div class="row mt-4">
-                <!-- Left Column: Insights -->
-                <div class="col-md-7">
-                    <div class="tableauPlaceholder shadow-lg p-3 bg-white rounded">
-                        <!-- Tableau Dashboard Embed -->
-                        <div class='tableauPlaceholder' id='viz1741118122458' style='position: relative'>
-                            <noscript>
-                                <a href='#'>
-                                    <img alt=' ' src='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1/1_rss.png' style='border: none' />
-                                </a>
-                            </noscript>
-                            <object class='tableauViz' style='display:none;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='site_root' value='' />
-                                <param name='name' value='JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1' />
-                                <param name='tabs' value='yes' />
-                                <param name='toolbar' value='yes' />
-                                <param name='static_image' value='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1/1.png' />
-                                <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                                <param name='language' value='en-US' />
-                            </object>
-                        </div>
-                        <script type='text/javascript'>
-                            var divElement = document.getElementById('viz1741118122458');
-                            var vizElement = divElement.getElementsByTagName('object')[0];
-                            if (divElement.offsetWidth > 800) {
-                                vizElement.style.width = '100%';
-                                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-                            } else if (divElement.offsetWidth > 500) {
-                                vizElement.style.width = '100%';
-                                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-                            } else {
-                                vizElement.style.width = '100%';
-                                vizElement.style.minHeight = '2650px';
-                                vizElement.style.maxHeight = (divElement.offsetWidth * 1.77) + 'px';
-                            }
-                            var scriptElement = document.createElement('script');
-                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Right Column: New Insights Description -->
-                <div class="col-md-5 d-flex align-items-center">
-                    <div class="p-4 bg-dark text-white rounded shadow-lg">
-                        <h3>Summary of Insights</h3>
-                        <p>The section provides insights from analyses of the job market demands and candidate qualifications, focusing on the skill gaps.</p>
-                        
-                        <h3>Skill Gap Insights</h3>
-                        <h4>Experience Levels Insight</h4>
-                        <ul>
-                            <li><strong>Experience Group 1 (0-2 years):</strong> Candidates with minimal experience are generally seeking basic foundational skills in areas like data analysis and programming.</li>
-                            <li><strong>Experience Group 2 (2-5 years):</strong> Aimed at professionals with early career experience, where demand is for intermediate skills like data visualization, algorithmic knowledge, and understanding of industry-standard tools.</li>
-                            <li><strong>Experience Group 3 (5-8 years):</strong> Requires advanced skills such as leadership in data science projects, deep learning techniques, or advanced machine learning algorithms.</li>
-                            <li><strong>Experience Group 4 (8+ years):</strong> Highly experienced professionals are expected to have expertise in specialized tools, advanced statistical analysis, and strategic decision-making using data.</li>
-                        </ul>
-                        
-                        <h4>Top Skills in Demand</h4>
-                        <ul>
-                            <li>Machine learning algorithms and libraries – Frequently required in data science and analytics roles.</li>
-                            <li>Data analysis and visualization tools – Strong proficiency in tools such as Power BI, Tableau, and Python's data manipulation libraries (Pandas, NumPy).</li>
-                            <li>Data quality assessment, profiling, and validation – Understanding how to improve data quality is key for data-driven roles.</li>
-                        </ul>
+                <!-- Main Dashboard Visualization -->
+                <div class="col-12">
+                    <div class='tableauPlaceholder shadow-lg p-3 bg-white rounded' id='viz1741118122458'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt=' ' src='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1/1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1' />
+                            <param name='tabs' value='yes' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard1/1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row mt-5">
-            <!-- Left Column: Additional Insights on Data Usage -->
-            <div class="col-md-5 d-flex align-items-center">
-                <div class="p-4 bg-dark text-white rounded shadow-lg">
-                    <h4 class="mt-3">Top Qualifications</h4>
-                    <ul class="text-start">
-                        <li>BBA: 33.36% of professionals in the field hold a Bachelor of Business Administration.</li>
-                        <li>BA: 33.36% of individuals in the job market hold a Bachelor of Arts degree.</li>
-                        <li>BCA: 33.28% of job seekers have a Bachelor of Computer Applications.</li>
-                    </ul>
-                    <h3>How Can You Use This Data?</h3>
-                    <p>Data analytics helps individuals make better career decisions.</p>
-                    <h4>Benefits:</h4>
-                    <ul>
-                        <li>Improve career choices</li>
-                        <li>Gain a competitive edge</li>
-                        <li>Understand market demands</li>
-                    </ul>
+            <div class="row mt-4">
+                <!-- Qualifications Dashboard -->
+                <div class="col-12">
+                    <div class='tableauPlaceholder shadow-lg p-3 bg-white rounded' id='viz17041117636292'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt=' ' src='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard2/1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard2' />
+                            <param name='tabs' value='yes' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard2/1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Right Column: Tableau Dashboard with Top Qualifications -->
-            <div class="col-md-7 text-center">
-                <div class='tableauPlaceholder' id='viz17041117636292' style='position: relative'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt=' ' src='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard2/1_rss.png' style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard2' />
-                        <param name='tabs' value='yes' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/JO/JOBMARKETINSIGHTANDSKILLGAPANALYSI/Dashboard2/1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                    </object>
-                </div>
-                <script type='text/javascript'>
-                    var divElement = document.getElementById('viz17041117636292');
-                    var vizElement = divElement.getElementsByTagName('object')[0];
-                    vizElement.style.width = '100%';
-                    vizElement.style.height = '600px';
-                    var scriptElement = document.createElement('script');
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                </script>
             </div>
         </div>
     </div>
@@ -180,8 +131,73 @@
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JavaScript -->
-    <script src="{% static 'js/script.js' %}"></script>
+    <!-- Custom JavaScript for Tooltip Handling -->
+    <script type='text/javascript'>
+        // Initialize Tableau visualizations
+        function initializeViz() {
+            // First visualization
+            var divElement1 = document.getElementById('viz1741118122458');
+            var vizElement1 = divElement1.getElementsByTagName('object')[0];
+            vizElement1.style.width = '100%';
+            vizElement1.style.height = (divElement1.offsetWidth * 0.6) + 'px';
+            
+            // Second visualization
+            var divElement2 = document.getElementById('viz17041117636292');
+            var vizElement2 = divElement2.getElementsByTagName('object')[0];
+            vizElement2.style.width = '100%';
+            vizElement2.style.height = '600px';
+            
+            // Load Tableau script
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement1.parentNode.insertBefore(scriptElement, vizElement1);
+            
+            // Set up custom tooltip handling after Tableau loads
+            scriptElement.onload = function() {
+                setupCustomTooltips();
+            };
+        }
+        
+        // Custom tooltip handling
+        function setupCustomTooltips() {
+            var customTooltip = document.getElementById('custom-tooltip');
+            
+            // This function would be called when Tableau triggers tooltip events
+            function showCustomTooltip(event) {
+                // Get data from the Tableau visualization
+                // This would need to be implemented based on your specific Tableau setup
+                // and using the Tableau JavaScript API
+                var tooltipContent = "Custom tooltip content based on visualization data";
+                
+                // Position and show the tooltip
+                customTooltip.innerHTML = tooltipContent;
+                customTooltip.style.display = 'block';
+                customTooltip.style.left = (event.pageX + 10) + 'px';
+                customTooltip.style.top = (event.pageY + 10) + 'px';
+            }
+            
+            function hideCustomTooltip() {
+                customTooltip.style.display = 'none';
+            }
+            
+            // In a real implementation, you would need to:
+            // 1. Get the Tableau Viz object using the JavaScript API
+            // 2. Add event listeners for tooltip events
+            // 3. Extract the relevant data from the visualization
+            // This is a placeholder for that logic
+            
+            // Example of how you might attach to a Tableau Viz object:
+            /*
+            var viz = new tableau.Viz(divElement, url, options);
+            viz.addEventListener(tableau.TableauEventName.MARKS_SELECTION, function(e) {
+                // Handle tooltip data here
+            });
+            */
+        }
+        
+        // Initialize when the page loads
+        window.addEventListener('load', initializeViz);
+    </script>
 
 </body>
 </html>
