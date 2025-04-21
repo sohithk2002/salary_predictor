@@ -1,5 +1,18 @@
 # salary_predictor
 # 🧠📊💼 Data Visualization | ML Salary Predictor | SpaCy | TF-IDF | Python | Flask | Altair | Tableau | Scikit-learn | Render | Pandas | Data Cleaning | Preprocessing | Data Abstraction | Task Abstraction
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SpaCy-09A3D5?logo=spacy&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/TF--IDF-FF6F00?style=for-the-badge&logo=scikitlearn&logoColor=white" />
+  <img src="https://img.shields.io/badge/Scikit--learn-F7931E?logo=scikit-learn&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Altair-4B8BBE?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTI4IDMyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGw9IiNGRjIzM0YiIGQ9Ik00OCAyTDQxLjI3IDExLjc2IDM2IDdMMjQgMjYuNzZMMzEuNzMgMzZsMTYtMjNMMzIgMTZsNi0xMiA2IDcuMjRMMTYgMTZsMTIgMTZsMy0zIDYgNCAzIDMuMjQgMy0yLjI0bC0zLTMgMy0yLjI0eiIvPjwvc3ZnPg==" />
+  <img src="https://img.shields.io/badge/Tableau-E97627?logo=tableau&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Render-46E3B7?logo=render&logoColor=white&style=for-the-badge" />
+</p>
+
 
 ## 📌 Project Title: **Job Market Insights & Salary Prediction through Data Visualization**
 
